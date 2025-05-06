@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.controllers.ConfirmacionController">
+    <center>
+        <VBox spacing="15" alignment="CENTER" style="-fx-padding: 40;">
+            <Label fx:id="labelConfirmacion" text="¡Reserva confirmada!" style="-fx-font-size: 18px;" />
+            <Button text="Volver a la cartelera" onAction="#volverACartelera"/>
+        </VBox>
+    </center>
+</BorderPane>
