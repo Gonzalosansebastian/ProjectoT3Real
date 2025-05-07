@@ -22,9 +22,9 @@
    </top>
 
    <center>
-      <GridPane fx:id="gridButacas" hgap="10" vgap="10">
+      <GridPane fx:id="gridButacas" hgap="10" vgap="10" BorderPane.alignment="CENTER">
          <padding>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
          </padding>
       </GridPane>
    </center>

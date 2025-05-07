@@ -11,6 +11,7 @@ import com.example.session.SesionUsuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -48,7 +49,6 @@ public class ButacasController implements Initializable {
             labelTitulo.setText("🎬 " + espectaculo.getNombre() + "  📅 " + espectaculo.getFecha());
 
             List<Butaca> butacas = ButacaDAO.obtenerButacasPorEspectaculo(espectaculo.getId());
-            System.out.println("Butacas obtenidas: " + butacas.size());
             cargarButacas(butacas);
         }
     }
@@ -71,8 +71,14 @@ public class ButacasController implements Initializable {
             img.setFitHeight(40);
             img.setFitWidth(40);
 
-            if (!b.isOcupada()) {
-                img.setOnMouseClicked(e -> {
+            img.setOnMouseClicked(e -> {
+                if (b.isOcupada()) {
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Butaca Ocupada");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Esta butaca ya está ocupada. Por favor, elige otra.");
+                    alert.showAndWait();
+                    } else {
                     if (!seleccionadas.contains(b)) {
                         seleccionadas.add(b);
                         img.setOpacity(0.5);
@@ -80,8 +86,9 @@ public class ButacasController implements Initializable {
                         seleccionadas.remove(b);
                         img.setOpacity(1);
                     }
-                });
-            }
+                }
+            });
+
 
             gridButacas.add(img, col, row);
             col++;
@@ -92,10 +99,13 @@ public class ButacasController implements Initializable {
         }
     }
 
+
     @FXML
     public void confirmarReserva() {
         Usuario usuario = SesionUsuario.getUsuario();
         Espectaculo espectaculo = SesionEspectaculo.getEspectaculo();
+
+        double total = 0.0;
 
         try (Connection conn = DatabaseConnection.getConnection()) {
             for (Butaca b : seleccionadas) {
@@ -107,10 +117,14 @@ public class ButacasController implements Initializable {
                     stmt.setInt(3, usuario.getId());
                     double precio = b.getTipo().equalsIgnoreCase("VIP") ? espectaculo.getPrecioVip() : espectaculo.getPrecioBase();
                     stmt.setDouble(4, precio);
+                    total += precio;
                     stmt.executeUpdate();
                 }
             }
-            Main.changeScene("/fxml/confirmacion.fxml"); // Puedes hacer una escena de confirmación
+
+            SesionEspectaculo.setTotalReserva(total); // Guardamos el total temporalmente
+            Main.changeScene("/fxml/confirmacion.fxml");
+
         } catch (Exception e) {
             e.printStackTrace();
         }

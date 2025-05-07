@@ -16,4 +16,14 @@ public class SesionEspectaculo {
     public static void limpiar() {
         espectaculo = null;
     }
+    private static double totalReserva;
+
+    public static void setTotalReserva(double total) {
+        totalReserva = total;
+    }
+
+    public static double getTotalReserva() {
+        return totalReserva;
+    }
+
 }
