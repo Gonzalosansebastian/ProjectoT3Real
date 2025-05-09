@@ -10,13 +10,13 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="400.0" maxWidth="600.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ADD8E6;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.controllers.Login">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #0F1B2B;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.controllers.Login">
    <left>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="400.0" fitWidth="333.0">
+            <ImageView fitHeight="600.0" fitWidth="530.0">
                <image>
-                  <Image url="@../images/hero.png" />
+                  <Image url="@../images/epicidad.png" />
                </image>
             </ImageView>
          </children>
@@ -27,24 +27,24 @@
          <children>
             <ImageView fitHeight="98.0" fitWidth="80.0" layoutX="94.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/GcwlGXrXgAA18Uo.png" />
+                  <Image url="@../images/logo.png" />
                </image>
             </ImageView>
-            <Label layoutX="108.0" layoutY="185.0" text="Email">
+            <Label layoutX="108.0" layoutY="185.0" text="Email" textFill="#f8f8f8">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="81.0" layoutY="264.0" text="Contraseña">
+            <Label layoutX="81.0" layoutY="264.0" text="Contraseña" textFill="#fffdfd">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
             <TextField fx:id="username" layoutX="60.0" layoutY="225.0" promptText="Usuario" />
-            <PasswordField fx:id="password" layoutX="59.0" layoutY="302.0" promptText="Contraseña" />
-            <Button fx:id="button" layoutX="87.0" layoutY="346.0" mnemonicParsing="false" onAction="#userLogin" prefHeight="23.0" prefWidth="85.0" style="-fx-background-color: #E6E6FA;" text="Conectar" />
-            <Label fx:id="wrongLogIn" layoutX="121.0" layoutY="153.0" textFill="#f20000" />
-            <Button fx:id="Registrarse" layoutX="87.0" layoutY="374.0" mnemonicParsing="false" onAction="#registrar" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #E6E6FA;" text="Registrarse" />
+            <PasswordField fx:id="password" layoutX="60.0" layoutY="300.0" promptText="Contraseña" />
+            <Button fx:id="button" layoutX="92.0" layoutY="342.0" mnemonicParsing="false" onAction="#userLogin" prefHeight="23.0" prefWidth="85.0" style="-fx-background-color: #E6E6FA;" text="Conectar" />
+            <Label fx:id="wrongLogIn" layoutX="130.0" layoutY="153.0" prefHeight="17.0" prefWidth="0.0" textFill="#f20000" />
+            <Button fx:id="Registrarse" layoutX="92.0" layoutY="375.0" mnemonicParsing="false" onAction="#registrar" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #E6E6FA;" text="Registrarse" />
          </children>
       </AnchorPane>
    </right>

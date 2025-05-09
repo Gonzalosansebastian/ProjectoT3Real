@@ -51,7 +51,7 @@ public class AfterLogin implements Initializable {
         for (Espectaculo e : espectaculos) {
             VBox item = new VBox();
             item.setSpacing(5);
-            item.setStyle("-fx-padding: 10; -fx-border-color: #ccc; -fx-border-width: 1; -fx-background-color: #f9f9f9;");
+            item.setStyle("-fx-padding: 10; -fx-border-color: #ccc; -fx-border-width: 1; -fx-background-color: #0F1B2B;");
 
             // Cargar imagen
             String imagePath = "/images/" + e.getNombre().toLowerCase().replace(" ", "") + ".jpg";
@@ -60,10 +60,14 @@ public class AfterLogin implements Initializable {
             poster.setPreserveRatio(true);
 
             Text titulo = new Text("🎬 " + e.getNombre());
+            titulo.setStyle("-fx-fill: white;");
             Text fecha = new Text("📅 Fecha: " + e.getFecha().toString());
+            fecha.setStyle("-fx-fill: white;");
             Text precio = new Text("💶 Base: " + e.getPrecioBase() + " | VIP: " + e.getPrecioVip());
+            precio.setStyle("-fx-fill: white;");
 
             Button comprarBtn = new Button("Comprar");
+            comprarBtn.setStyle("-fx-background-color:  #E6E6FA");
             comprarBtn.setOnAction(evt -> comprarEspectaculo(e));
 
             item.getChildren().addAll(poster, titulo, fecha, precio, comprarBtn);

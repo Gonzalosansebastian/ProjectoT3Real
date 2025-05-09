@@ -7,19 +7,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.controllers.registrocontroller">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #0F1B2B;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.controllers.registrocontroller">
     <VBox alignment="CENTER" spacing="15" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
 
-        <Label style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Registro de Usuario" />
+        <Label style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Registro de Usuario" textFill="WHITE" />
 
-        <TextField fx:id="nombreField" promptText="Nombre completo" style="-fx-pref-width: 300px; -fx-font-size: 14px;" />
+        <TextField fx:id="nombreField" promptText="Nombre completo" style="-fx-font-size: 14px;" />
 
-        <TextField fx:id="emailField" promptText="Correo electrónico" style="-fx-pref-width: 300px; -fx-font-size: 14px;" />
+        <TextField fx:id="emailField" promptText="Correo electrónico" style="-fx-font-size: 14px;" />
 
-        <PasswordField fx:id="passwordField" promptText="Contraseña" style="-fx-pref-width: 300px; -fx-font-size: 14px;" />
+        <PasswordField fx:id="passwordField" promptText="Contraseña" style="-fx-font-size: 14px;" />
 
-        <Button onAction="#registrarUsuario" prefHeight="30.0" prefWidth="107.0" style="-fx-font-size: 14px; -fx-background-color: #2196f3; -fx-text-fill: white; -fx-pref-width: 150px;" text="Registrarse" />
-      <Button onAction="#volverAtras" prefHeight="30.0" prefWidth="107.0" style="-fx-font-size: 14px; -fx-background-color: #808080; -fx-text-fill: white; -fx-pref-width: 150px;" text="Volver Atras" />
+        <Button onAction="#registrarUsuario" prefHeight="30.0" prefWidth="107.0" style="-fx-font-size: 14px; -fx-background-color: #1186c0; -fx-pref-width: 150px;" text="Registrarse" textFill="#fcfafa" />
+      <Button onAction="#volverAtras" prefHeight="30.0" prefWidth="107.0" style="-fx-font-size: 14px; -fx-background-color: #E6E6FA; -fx-pref-width: 150px;" text="Volver Atras" />
 
         <Label fx:id="statusLabel" style="-fx-font-size: 13px;" textFill="#ff4444" />
     </VBox>
