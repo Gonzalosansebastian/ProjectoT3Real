@@ -5,12 +5,14 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #0F1B2B;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="com.example.demo.controllers.ConfirmacionController">
+<BorderPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #0F1B2B;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.controllers.ConfirmacionController">
     <center>
         <VBox alignment="CENTER" spacing="15" style="fx: 40;">
             <Label fx:id="labelTotal" style="-fx-font-size: 16px;" textFill="WHITE" />
             <Label fx:id="labelConfirmacion" style="-fx-font-size: 18px;" text="¡Reserva confirmada!" textFill="WHITE" />
             <Button onAction="#volverACartelera" style="-fx-background-color: #E6E6FA;" text="Volver a la cartelera" />
+         <Label style="-fx-font-size: 18px;" text="¿Quieres borrar todas las reservas hechas para esta película?" textFill="#fcfcfc" />
+         <Button mnemonicParsing="false" onAction="#cancelarReservas" style="-fx-background-color: #E6E6FA;" text="Borrar Reservas" />
         </VBox>
     </center>
 </BorderPane>

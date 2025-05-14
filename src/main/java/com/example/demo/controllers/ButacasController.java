@@ -104,6 +104,10 @@ public class ButacasController implements Initializable {
     public void confirmarReserva() {
         Usuario usuario = SesionUsuario.getUsuario();
         Espectaculo espectaculo = SesionEspectaculo.getEspectaculo();
+        if (seleccionadas.size() > 4) {
+            mostrarAlerta("Límite excedido", "Solo puedes reservar un máximo de 4 butacas.");
+            return;
+        }
 
         double total = 0.0;
 
@@ -135,5 +139,12 @@ public class ButacasController implements Initializable {
     }
     public void volverAtras(ActionEvent event) throws IOException {
         Main.changeScene("/fxml/afterLogin.fxml");
+    }
+    private void mostrarAlerta(String titulo, String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
     }
 }
