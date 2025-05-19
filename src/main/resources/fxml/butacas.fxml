@@ -17,6 +17,7 @@
          </padding>
          <Label fx:id="labelTitulo" text="Película - Fecha" textFill="WHITE" />
          <Pane HBox.hgrow="ALWAYS" />
+         <Label fx:id="labelTotalSeleccionado" prefHeight="17.0" prefWidth="139.0" text="Total: 0 €" textFill="WHITE" />
          <Button fx:id="btnLogout" onAction="#userLogOut" style="-fx-background-color: #E6E6FA;" text="Cerrar sesión" />
       </HBox>
    </top>

@@ -37,6 +37,9 @@ public class ButacasController implements Initializable {
     private Button logout;
     @FXML
     private Button btnVolver;
+    @FXML
+    private Label labelTotalSeleccionado;
+
 
     private List<Butaca> seleccionadas = new ArrayList<>();
 
@@ -86,6 +89,7 @@ public class ButacasController implements Initializable {
                         seleccionadas.remove(b);
                         img.setOpacity(1);
                     }
+                    actualizarPrecioTotal();
                 }
             });
 
@@ -147,4 +151,16 @@ public class ButacasController implements Initializable {
         alert.setContentText(mensaje);
         alert.showAndWait();
     }
+    private void actualizarPrecioTotal() {
+        double total = 0.0;
+        Espectaculo espectaculo = SesionEspectaculo.getEspectaculo();
+
+        for (Butaca b : seleccionadas) {
+            total += b.getTipo().equalsIgnoreCase("VIP") ?
+                    espectaculo.getPrecioVip() : espectaculo.getPrecioBase();
+        }
+
+        labelTotalSeleccionado.setText("💶 Total: " + total + " €");
+    }
+
 }
