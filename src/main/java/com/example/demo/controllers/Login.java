@@ -70,10 +70,9 @@ public class Login {
 
                 Usuario usuario = new Usuario(id, nombre, email, password);
 
-                // 👇 Guardar usuario en sesión
+                // Guardar usuario en sesión
                 SesionUsuario.setUsuario(usuario);
 
-                wrongLogIn.setText("Entrando...");
                 Main.changeScene("/fxml/afterlogin.fxml");
 
             } else {

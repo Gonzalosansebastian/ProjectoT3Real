@@ -33,36 +33,4 @@ public class ConfirmacionController implements Initializable {
     public void volverACartelera(ActionEvent event) throws IOException {
         Main.changeScene("/fxml/afterLogin.fxml");
     }
-    @FXML
-    public void cancelarReservas() {
-        Usuario usuario = SesionUsuario.getUsuario();
-        Espectaculo espectaculo = SesionEspectaculo.getEspectaculo();
-
-        try (Connection conn = DatabaseConnection.getConnection()) {
-            String sql = "DELETE FROM RESERVAS WHERE id_usuario = ? AND id_espectaculo = ?";
-            try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-                stmt.setInt(1, usuario.getId());
-                stmt.setInt(2, espectaculo.getId());
-                int filasEliminadas = stmt.executeUpdate();
-                if (filasEliminadas > 0) {
-                    mostrarAlerta("Éxito", "Reservas canceladas correctamente.");
-                    Main.changeScene("/fxml/afterLogin.fxml"); // Vuelve al menú
-                } else {
-                    mostrarAlerta("Aviso", "No hay reservas para cancelar.");
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            mostrarAlerta("Error", "Hubo un problema al cancelar las reservas.");
-        }
-    }
-    private void mostrarAlerta(String titulo, String mensaje) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(titulo);
-        alert.setHeaderText(null);
-        alert.setContentText(mensaje);
-        alert.showAndWait();
-    }
-
-
 }
